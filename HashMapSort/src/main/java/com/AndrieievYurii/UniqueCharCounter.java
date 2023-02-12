@@ -30,4 +30,3 @@ public class UniqueCharCounter {
         return (HashMap<Character, Integer>) charToCount;
     }
 }
-
