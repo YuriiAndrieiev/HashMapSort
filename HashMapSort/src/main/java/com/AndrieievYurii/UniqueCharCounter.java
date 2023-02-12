@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UniqueCharCounter {
+
     public HashMap<Character, Integer> distributeElements(String input ) {
         HashMapCach hashMapCach = new HashMapCach();
         Map<String,HashMap<Character,Integer>> cachHashMap = hashMapCach.getCachedWords();
