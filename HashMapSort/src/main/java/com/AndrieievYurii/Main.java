@@ -11,13 +11,13 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("print input");
         String input = scanner.nextLine();
-        MapsManipulations mapsManipulations = new MapsManipulations();
+        UniqueCharCounter uniqueCharCounter = new UniqueCharCounter();
         HashMapCach hashMapCach = new HashMapCach();
-        Map <Character,Integer> charToCount = mapsManipulations.distributeElements(input);
+        Map <Character,Integer> charToCount = uniqueCharCounter.distributeElements(input);
         Map<String,HashMap<Character,Integer>> cachedWords = hashMapCach.getCachedWords();
         ConsoleOutput consoleOutput = new ConsoleOutput();
         consoleOutput.printOutput(charToCount);
-        MapsManipulations mapsManipulations1 = new MapsManipulations();
-        mapsManipulations1.distributeElements(input);
+        UniqueCharCounter uniqueCharCounter1 = new UniqueCharCounter();
+        uniqueCharCounter1.distributeElements(input);
     }
 }
