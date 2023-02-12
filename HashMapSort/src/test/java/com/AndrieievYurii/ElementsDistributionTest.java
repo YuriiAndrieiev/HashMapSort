@@ -1,17 +1,17 @@
 package com.AndrieievYurii;
 
 import org.junit.jupiter.api.Test;
-
 import java.util.HashMap;
 
 import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 
 public class ElementsDistributionTest {
 
     @Test
-    void shouldReturnSortedResultWhenWeGetStringInput(){
-        ElementsDistribution elementsDistribution = new ElementsDistribution();
+    void elementDisrtibutionShouldReturnOutputWhenInputFirstCase(){
+        MapsManipulations mapsManipulations = new MapsManipulations();
         HashMap<Character, Integer> expectedCharToCount = new HashMap<>();
         expectedCharToCount.put('D',3);
         expectedCharToCount.put('L',3);
@@ -21,37 +21,26 @@ public class ElementsDistributionTest {
         expectedCharToCount.put('E',1);
         expectedCharToCount.put('W',1);
         expectedCharToCount.put('H',1);
-        elementsDistribution.consoleOutput(expectedCharToCount);
-        String input = "Hello worlddd!";
-        HashMap<Character, Integer> charToCount = elementsDistribution.elementDistribution(input);
-        elementsDistribution.consoleOutput(charToCount);
+        String input = "HelloWorlddd!";
+        HashMap<Character, Integer> charToCount = mapsManipulations.distributeElements(input);
         assertEquals(expectedCharToCount, charToCount);
     }
 
     @Test
-    void shouldReturnSortedResultWhenWeGetStringInputSecondCase(){
-        ElementsDistribution elementsDistribution = new ElementsDistribution();
+    void elementDisrtibutionShouldReturnOutputWhenInputSecondCase(){
+        MapsManipulations mapsManipulations = new MapsManipulations();
         HashMap<Character, Integer> expectedCharToCount = new HashMap<>();
-        expectedCharToCount.put('I',4);
-        expectedCharToCount.put('!',2);
-        expectedCharToCount.put('R',2);
-        expectedCharToCount.put('E',2);
-        expectedCharToCount.put('A',1);
-        expectedCharToCount.put('D',1);
-        expectedCharToCount.put('U',1);
-        expectedCharToCount.put('V',1);
-        expectedCharToCount.put('Y',1);
-        expectedCharToCount.put('N',1);
-        elementsDistribution.consoleOutput(expectedCharToCount);
-        String input = "Yurii Andrieiev!!";
-        HashMap<Character, Integer> charToCount = elementsDistribution.elementDistribution(input);
-        elementsDistribution.consoleOutput(charToCount);
+        expectedCharToCount.put('2',4);
+        expectedCharToCount.put('1',3);
+        expectedCharToCount.put('0',2);
+        String input = "222211100";
+        HashMap<Character, Integer> charToCount = mapsManipulations.distributeElements(input);
         assertEquals(expectedCharToCount, charToCount);
     }
 
     @Test
-    void shouldReturnSortedResultWhenWeGetStringInputThirdCase(){
-        ElementsDistribution elementsDistribution = new ElementsDistribution();
+    void elementDisrtibutionShouldReturnOutputWhenInputThirdCase(){
+        MapsManipulations mapsManipulations = new MapsManipulations();
         HashMap<Character, Integer> expectedCharToCount = new HashMap<>();
         expectedCharToCount.put('I',6);
         expectedCharToCount.put('A',2);
@@ -66,37 +55,26 @@ public class ElementsDistributionTest {
         expectedCharToCount.put('R',1);
         expectedCharToCount.put('T',1);
         expectedCharToCount.put('V',1);
-        elementsDistribution.consoleOutput(expectedCharToCount);
         String input = "Vladimir Putin Idi Na Hui!";
-        HashMap<Character, Integer> charToCount = elementsDistribution.elementDistribution(input);
-        elementsDistribution.consoleOutput(charToCount);
+        HashMap<Character, Integer> charToCount = mapsManipulations.distributeElements(input);
         assertEquals(expectedCharToCount, charToCount);
     }
 
     @Test
-    void shouldReturnSortedResultWhenWeGetStringInputFourthCase(){
-        ElementsDistribution elementsDistribution = new ElementsDistribution();
-        HashMap<Character, Integer> expectedCharToCount = new HashMap<>();
-        expectedCharToCount.put('A',2);
-        expectedCharToCount.put('R',2);
-        expectedCharToCount.put('I',2);
-        expectedCharToCount.put('S',1);
-        expectedCharToCount.put('E',1);
-        expectedCharToCount.put('W',1);
-        expectedCharToCount.put('H',1);
-        expectedCharToCount.put('M',1);
-        expectedCharToCount.put('N',1);
-        expectedCharToCount.put('O',1);
-        elementsDistribution.consoleOutput(expectedCharToCount);
-        String input = "MarinaIsWhore";
-        HashMap<Character, Integer> charToCount = elementsDistribution.elementDistribution(input);
-        elementsDistribution.consoleOutput(charToCount);
-        assertEquals(expectedCharToCount, charToCount);
+    void testExpectedException(){
+       assertThrows(Exception.class, () -> {
+           MapsManipulations mapsManipulations = new MapsManipulations();
+           HashMap<Character, Integer> expectedCharToCount = new HashMap<>();
+           expectedCharToCount = null;
+           String input = null;
+           HashMap<Character, Integer> charToCount = mapsManipulations.distributeElements(input);
+           assertEquals(expectedCharToCount, charToCount);
+       });
     }
 
     @Test
-    void shouldReturnSortedResultWhenWeGetStringInputLastCase(){
-        ElementsDistribution elementsDistribution = new ElementsDistribution();
+    void elementDisrtibutionShouldReturnOutputWhenInputFifthCase(){
+        MapsManipulations mapsManipulations = new MapsManipulations();
         HashMap<Character, Integer> expectedCharToCount = new HashMap<>();
         expectedCharToCount.put('T',3);
         expectedCharToCount.put('A',2);
@@ -108,10 +86,8 @@ public class ElementsDistributionTest {
         expectedCharToCount.put('Z',1);
         expectedCharToCount.put('L',1);
         expectedCharToCount.put('N',1);
-        elementsDistribution.consoleOutput(expectedCharToCount);
         String input = "Zaebali unit tests";
-        HashMap<Character, Integer> charToCount = elementsDistribution.elementDistribution(input);
-        elementsDistribution.consoleOutput(charToCount);
+        HashMap<Character, Integer> charToCount = mapsManipulations.distributeElements(input);
         assertEquals(expectedCharToCount, charToCount);
     }
 }

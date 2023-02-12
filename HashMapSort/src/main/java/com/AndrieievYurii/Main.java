@@ -1,6 +1,7 @@
 package com.AndrieievYurii;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 
@@ -10,8 +11,13 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("print input");
         String input = scanner.nextLine();
-        ElementsDistribution elementsDistribution = new ElementsDistribution();
-        HashMap<Character, Integer> charToCount = elementsDistribution.elementDistribution(input);
-        elementsDistribution.consoleOutput(charToCount);
+        MapsManipulations mapsManipulations = new MapsManipulations();
+        HashMapCach hashMapCach = new HashMapCach();
+        Map <Character,Integer> charToCount = mapsManipulations.distributeElements(input);
+        Map<String,HashMap<Character,Integer>> cachedWords = hashMapCach.getCachedWords();
+        ConsoleOutput consoleOutput = new ConsoleOutput();
+        consoleOutput.printOutput(charToCount);
+        MapsManipulations mapsManipulations1 = new MapsManipulations();
+        mapsManipulations1.distributeElements(input);
     }
 }
