@@ -25,7 +25,7 @@ public class UniqueCharCounter {
         String[] inputSplit = inputUpperCase.split(" ");
         if (cachedWords.containsKey(input)) {
             return cachedWords.get(input);
-        }else{
+        }
             for(int i = 0; i < inputSplit.length; i++) {
                 char[] inputArray = inputSplit[i].toCharArray();
                 for (char array : inputArray) {
@@ -37,6 +37,6 @@ public class UniqueCharCounter {
             }
             cachedWords.put(input, (HashMap<Character, Integer>) charToCount);
             return (HashMap<Character, Integer>) charToCount;
-        }
+
     }
 }
