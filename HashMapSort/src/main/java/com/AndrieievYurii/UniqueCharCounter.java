@@ -1,25 +1,14 @@
 package com.AndrieievYurii;
 
-import java.util.HashMap ;
+import java.util.HashMap;
 import java.util.Map;
+
 
 public class UniqueCharCounter {
 
-    static Map<String, HashMap<Character,Integer>> cachedWords = new HashMap<>();
-
-    public static HashMap<String, HashMap<Character, Integer>> getCachedWords() {
-        return (HashMap<String, HashMap<Character, Integer>>) cachedWords;
-    }
-
-    @Override
-    public String toString() {
-        return "HashMapCach{" +
-                "cachedWords=" + cachedWords +
-                '}';
-    }
+    private static Map<String, Map<Character,Integer>> cachedWords = new HashMap<>();
 
     public Map<Character, Integer> calculateUniqueChars(String input ) {
-        Map<String,HashMap<Character,Integer>> cachedWords = getCachedWords();
         Map<Character, Integer> charToCount = new HashMap<>();
         String inputUpperCase = input.toUpperCase();
         String[] inputSplit = inputUpperCase.split(" ");
@@ -35,8 +24,7 @@ public class UniqueCharCounter {
                     charToCount.put(array, charToCount.get(array) + 1);
                 }
             }
-            cachedWords.put(input, (HashMap<Character, Integer>) charToCount);
-            return (HashMap<Character, Integer>) charToCount;
-
+            cachedWords.put(input,charToCount);
+            return charToCount;
     }
 }
