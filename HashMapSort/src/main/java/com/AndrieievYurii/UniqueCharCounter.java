@@ -1,6 +1,6 @@
 package com.AndrieievYurii;
 
-import java.util.HashMap;
+import java.util.HashMap ;
 import java.util.Map;
 
 public class UniqueCharCounter {
