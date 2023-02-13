@@ -5,13 +5,25 @@ import java.util.Map;
 
 public class UniqueCharCounter {
 
+    static Map<String, HashMap<Character,Integer>> cachedWords = new HashMap<>();
+
+    public static HashMap<String, HashMap<Character, Integer>> getCachedWords() {
+        return (HashMap<String, HashMap<Character, Integer>>) cachedWords;
+    }
+
+    @Override
+    public String toString() {
+        return "HashMapCach{" +
+                "cachedWords=" + cachedWords +
+                '}';
+    }
+
     public HashMap<Character, Integer> distributeElements(String input ) {
-        HashMapCach hashMapCach = new HashMapCach();
-        Map<String,HashMap<Character,Integer>> cachHashMap = hashMapCach.getCachedWords();
+        Map<String,HashMap<Character,Integer>> cachedWords = getCachedWords();
         Map<Character, Integer> charToCount = new HashMap<>();
         String inputUpperCase = input.toUpperCase();
         String[] inputSplit = inputUpperCase.split(" ");
-        if (!cachHashMap.containsKey(input)) {
+        if (!cachedWords.containsKey(input)) {
             for(int i = 0; i < inputSplit.length; i++) {
                 char[] inputArray = inputSplit[i].toCharArray();
                 for (char array : inputArray) {
@@ -21,13 +33,11 @@ public class UniqueCharCounter {
                     charToCount.put(array, charToCount.get(array) + 1);
                 }
             }
-            cachHashMap.put(input, (HashMap<Character, Integer>) charToCount);
+            cachedWords.put(input, (HashMap<Character, Integer>) charToCount);
             return (HashMap<Character, Integer>) charToCount;
-        }else if (cachHashMap.containsKey(input)){
-            cachHashMap.get(input);
-            System.out.println("this word has already been added to cash, "+input);
+        }else if (cachedWords.containsKey(input)){
+            return cachedWords.get(input);
         }
         return (HashMap<Character, Integer>) charToCount;
     }
 }
-
