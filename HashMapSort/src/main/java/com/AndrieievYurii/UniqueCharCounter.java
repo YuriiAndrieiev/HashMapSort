@@ -18,7 +18,7 @@ public class UniqueCharCounter {
                 '}';
     }
 
-    public HashMap<Character, Integer> distributeElements(String input ) {
+    public Map<Character, Integer> calculateUniqueChars(String input ) {
         Map<String,HashMap<Character,Integer>> cachedWords = getCachedWords();
         Map<Character, Integer> charToCount = new HashMap<>();
         String inputUpperCase = input.toUpperCase();
