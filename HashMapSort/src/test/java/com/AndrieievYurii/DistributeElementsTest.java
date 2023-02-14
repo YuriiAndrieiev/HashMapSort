@@ -10,7 +10,7 @@ import static org.junit.Assert.assertThrows;
 
 public class DistributeElementsTest {
     @Test
-    void calculateUniqueCharsShouldReturnOutputWhenInputFirstCase(){
+    void calculateUniqueCharsShouldReturnOutputWhenInputIsOneWord(){
         UniqueCharCounter uniqueCharCounter = new UniqueCharCounter();
         Map<Character, Integer> expectedCharToCount = new HashMap<>();
         expectedCharToCount.put('D',3);
@@ -27,7 +27,7 @@ public class DistributeElementsTest {
     }
 
     @Test
-    void calculateUniqueCharsShouldReturnOutputWhenInputSecondCase(){
+    void calculateUniqueCharsShouldReturnOutputWhenInputConsistsOfFigures(){
         UniqueCharCounter uniqueCharCounter = new UniqueCharCounter();
         Map<Character, Integer> expectedCharToCount = new HashMap<>();
         expectedCharToCount.put('2',4);
@@ -39,7 +39,7 @@ public class DistributeElementsTest {
     }
 
     @Test
-    void calculateUniqueCharsShouldReturnOutputWhenInputThirdCase(){
+    void calculateUniqueCharsShouldReturnOutputWhenInputIsLotsOfWords(){
         UniqueCharCounter uniqueCharCounter = new UniqueCharCounter();
         Map<Character, Integer> expectedCharToCount = new HashMap<>();
         expectedCharToCount.put('I',6);
@@ -61,7 +61,7 @@ public class DistributeElementsTest {
     }
 
     @Test
-    void calculateUniqueCharsShouldThrowYourExceptionWhenInputNull(){
+    void calculateUniqueCharsShouldThrowExceptionWhenInputIsNull(){
         assertThrows(Exception.class, () -> {
             UniqueCharCounter uniqueCharCounter = new UniqueCharCounter();
             HashMap<Character, Integer> expectedCharToCount = new HashMap<>();
@@ -73,7 +73,7 @@ public class DistributeElementsTest {
     }
 
     @Test
-    void calculateUniqueCharsShouldReturnOutputWhenInputFifthCase(){
+    void calculateUniqueCharsShouldReturnOutputWhenInputIsThreeWorld(){  //I cant delete it, because its too vital
         UniqueCharCounter uniqueCharCounter = new UniqueCharCounter();
         Map<Character, Integer> expectedCharToCount = new HashMap<>();
         expectedCharToCount.put('T',3);
